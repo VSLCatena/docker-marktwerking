@@ -14,7 +14,7 @@ services:
     volumes:
       - dbdata:/var/lib/mysql/ # allows you to stop and restart the db service without losing data
       - ./etc/mysql/my.cnf:/etc/mysql/my.cnf
-      - ./html:/docker-entrypoint-initdb.d
+      - ./html:/docker-entrypoint-initdb.d #autoload *.sql
     networks:
       - net
     restart: always
@@ -34,6 +34,7 @@ services:
       - MW_DB_PASSWORD=dbpass
       - MW_DB_DATABASE=marktwerking
       - MW_BAR_PASSWORD=MW21
+      - MW_IP_WHITELIST="192.168.0.0/16"
     tty: true
     ports:
       - 4080:80
