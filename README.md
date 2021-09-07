@@ -1,8 +1,3 @@
-*Docker container for LAMP apps
-
-APP_NAME = marktwerking
-
-APP_REPO = https://github.com/vslcatena/marktwerking.git
 
 # Contents
 
@@ -21,10 +16,9 @@ APP_REPO = https://github.com/vslcatena/marktwerking.git
 
 # Changelog
 - Initial commit
-  - clone of docker-laravel
 
 # Purpose
-- Easy spawn of LAMP
+- Easy spawn of LAMP with Marktwerking
 - No 'installation' on host device
 - Instant edit of LAMP files
 - Standardize environment
@@ -33,47 +27,22 @@ APP_REPO = https://github.com/vslcatena/marktwerking.git
 # Installation 
 
 ## Dependencies
-- https://github.com/vslcatena/marktwerking or any other LAMP stack app
-
+- https://github.com/vslcatena/marktwerking or any other LAMP stack app in ./html
 - Time... 
 
 ## Steps
 
-1. ```git clone https://github.com/vslcatena/docker-web``` 
+1. ```git clone https://github.com/vslcatena/docker-marktwerking``` 
 
-2. Get .env.example from your repo and fill in your variables
+2. Fill in your variables in docker-compose
 
 3. Check configuration in docker-compose 
 
-4. ```screen -R APP_NAME```
+4. ```docker-compose up --build``` 
 
-5. ```docker-compose up --build``` 
-6. Wait 25 minutes , grab some coffee
-7. Access your server files on ./html/ (instant-edit using bind mount)
-8. Visit website on http://{docker-host}:1234
+5. Wait some minutes , grab some coffee
 
+6. Access your server files on ./html/ (instant-edit using bind mount)
 
-# Dir & Files
-## Before initialize
-- Dockerfile
-- docker-compose.yml
-- README.md
+7. Visit website on http://{docker-host}:4080
 
-## After initialization
-- above mentioned files
-- ./etc
-  -  config of php
-  -  config of mysql
-  -  config of apache2
-- .env
-  - configuration of application
-
-# Troubleshoot
-- App wont start.
-  - Check error in build and report back with issue
-
-
-- How to start over?
-  - Remove ./html
-  - Remove ./etc
-  - Remove all older images and containers
